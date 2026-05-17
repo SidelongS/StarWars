@@ -1,13 +1,13 @@
 import Hero from "./Hero.jsx";
+import OpeningCrawl from "./OpeningCrawl.jsx";
 import DreamTeam from "./DreamTeam.jsx";
-import Text from "./Text.jsx";
 
 const Main = () => {
     return (
         <main className="clearfix">
             <Hero/>
             <DreamTeam/>
-            <Text/>
+            <OpeningCrawl/>
         </main>
     )
 }
