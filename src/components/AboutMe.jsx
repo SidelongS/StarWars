@@ -15,14 +15,14 @@ const AboutMe = () => {
                 .then(response => response.json())
                 .then(data => {
                     const info = {
-                        name: data.name,
-                        gender: data.gender,
-                        birth_year: data.birth_year,
-                        height: data.height,
-                        mass: data.mass,
-                        hair_color: data.hair_color,
-                        skin_color: data.skin_color,
-                        eye_color: data.eye_color
+                        'Name': data.name,
+                        'Gender': data.gender,
+                        'Birth Year': data.birth_year,
+                        'Height': data.height,
+                        'Mass': data.mass,
+                        'Hair Color': data.hair_color,
+                        'Skin Color': data.skin_color,
+                        'Eye Color': data.eye_color
                     }
                     setHero(info);
                     localStorage.setItem('hero', JSON.stringify({
@@ -33,24 +33,19 @@ const AboutMe = () => {
         }
     }, [])
 
-
     return (
         <>
             {(!!hero) &&
-                <div className='fs-2 lh-lg text-justify ms-5'>
-                    <p><span className='display-3'>name:</span> {hero.name}</p>
-                    <p><span className='display-3'>gender:</span> {hero.gender}</p>
-                    <p><span className='display-3'>birth year:</span> {hero.birth_year}</p>
-                    <p><span className='display-3'>height:</span> {hero.height}</p>
-                    <p><span className='display-3'>mass:</span> {hero.mass}</p>
-                    <p><span className='display-3'>hair color:</span> {hero.hair_color}</p>
-                    <p><span className='display-3'>skin color:</span> {hero.skin_color}</p>
-                    <p><span className='display-3'>eye color:</span> {hero.eye_color}</p>
+                <div className="text-2xl leading-loose text-justify ms-5">
+                    {Object.keys(hero).map(key => (
+                        <p key={key}>
+                            <span className="text-3xl">{key}:</span> {hero[key]}
+                        </p>
+                    ))}
                 </div>
             }
         </>
     );
-
 }
 
 export default AboutMe;
